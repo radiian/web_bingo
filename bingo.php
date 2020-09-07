@@ -1,3 +1,11 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
 <?php
 require_once('db.php');
 
@@ -22,7 +30,7 @@ if(mysqli_num_rows($squares) > 0){
 
         $idx = 0;
         for($i = 0; $i < 5; ++$i){
-                $table .= "<tr height='100px' width='100px'>";
+                $table .= "<tr height='150px' width='150px'>";
                 if($i == 2){
                         //be sure to add the free space
                         $table .= "<th>". $text[$idx++] . "</th>";
@@ -43,12 +51,13 @@ if(mysqli_num_rows($squares) > 0){
 
         }
         $table .= "</table>";
-        echo "<html><head><style>table, th, td {  word-wrap:break-word;border: 1px solid black;  border-collapse: collapse;} table {table-layout: fixed;}</style></head>";
         echo $table;
-        echo "</html>";
+
 }
 else{
         echo "No data :(";
 }
 
 ?>
+</body>
+</html>
