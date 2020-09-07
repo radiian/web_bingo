@@ -1,10 +1,20 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="bingo.css">
+	 <script src="bingo.js"></script> 
 </head>
 
 <body>
+ <div class='bingo'>
+ <div class='stars'></div>
+ <div class='stripes'></div>
+ <div class='heading'>
+ <span class='sub'>Randy Loser's</span>
+ <span>Protest Bingo</span>
+ </div>
+ 
+ <div class='card'>
 
 <?php
 require_once('db.php');
@@ -33,19 +43,19 @@ if(mysqli_num_rows($squares) > 0){
                 $table .= "<tr height='150px' width='150px'>";
                 if($i == 2){
                         //be sure to add the free space
-                        $table .= "<th>". $text[$idx++] . "</th>";
-                        $table .= "<th>". $text[$idx++] . "</th>";
-                        $table .= "<th>Free Space</th>";
-                        $table .= "<th>". $text[$idx++] . "</th>";
-                        $table .= "<th>". $text[$idx++] . "</th>";
+                        $table .= "<th id='0-$i' onclick='mark(0, $i)'>". $text[$idx++] . "</th>";
+                        $table .= "<th id='1-$i' onclick='mark(1, $i)'>". $text[$idx++] . "</th>";
+                        $table .= "<th id='2-$i' onclick='mark(2, $i)'>Free Space</th>";
+                        $table .= "<th id='3-$i' onclick='mark(3, $i)'>". $text[$idx++] . "</th>";
+                        $table .= "<th id='4-$i' onclick='mark(4, $i)'>". $text[$idx++] . "</th>";
 
                 }
                 else{
-                        $table .= "<th>". $text[$idx++] . "</th>";
-                        $table .= "<th>". $text[$idx++] . "</th>";
-                        $table .= "<th>". $text[$idx++] . "</th>";
-                        $table .= "<th>". $text[$idx++] . "</th>";
-                        $table .= "<th>". $text[$idx++] . "</th>";
+                        $table .= "<th id='0-$i' onclick='mark(0, $i)'>". $text[$idx++] . "</th>";
+                        $table .= "<th id='1-$i' onclick='mark(1, $i)'>". $text[$idx++] . "</th>";
+                        $table .= "<th id='2-$i' onclick='mark(2, $i)'>". $text[$idx++] . "</th>";
+                        $table .= "<th id='3-$i' onclick='mark(3, $i)'>". $text[$idx++] . "</th>";
+                        $table .= "<th id='4-$i' onclick='mark(4, $i)'>". $text[$idx++] . "</th>";
                 }
                 $table .= "</tr>";
 
@@ -59,5 +69,7 @@ else{
 }
 
 ?>
+</div>
+</div>
 </body>
 </html>
