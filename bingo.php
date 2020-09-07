@@ -7,11 +7,14 @@ if($!con){
 	die("Something went wrong");
 }
 
+
 $query = "SELECT * FROM squares ORDER BY RAND() LIMIT 24";
 $squares = mysqli_query($con, $query);
 
 if(mysqli_num_rows($squares) > 0){
+	echo "Data: <br/>";
 	while($row = mysqli_fetch_assoc($squares)){
+		echo "row: ";
 		echo $row['text']. "<br/>";
 	}
 }
