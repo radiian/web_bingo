@@ -1,2 +1,3 @@
-# web_bingo
-basic web bingo with database for words.
+# Web Bingo!
+This is a basic php/javascript internet bingo project!
+Play bingo with your friends with customizable cards!
