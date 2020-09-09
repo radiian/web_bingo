@@ -10,14 +10,14 @@
  <div class='stars'></div>
  <div class='stripes'></div>
  <div class='heading'>
- <span class='sub'>Randy Loser's</span>
- <span>Protest Bingo</span>
+ <span class='sub'><?php require_once('settings.php'); echo $bingo_card_brand; ?></span>
+ <span><?php require_once('settings.php'); echo $bingo_card_title; ?></span>
  </div>
  
  <div class='card'>
 
 <?php
-require_once('db.php');
+require_once('settings.php');
 
 class Tile{
 	public $id;
