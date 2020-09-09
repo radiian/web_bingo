@@ -50,7 +50,7 @@ table, th, td {
     z-index: 100;
     width: 32px;
     background-color: #014e6c;
-    background-image: url(/images/star.svg);
+    background-image: url(/star.svg);
     background-repeat: repeat-y;
     background-size: 18px;
     background-position: center top;
@@ -59,8 +59,8 @@ table, th, td {
 .bingo .stripes {
     background-image: repeating-linear-gradient(#fe3837 0, #fe3837 3%, #fff 3%, #fff 6%);
     position: absolute;
-    left: -30px;
-    right: -30px;
+    left: -28px;
+    right: -28px;
     top: -30px;
     bottom: -30px;
     z-index: 0;
