@@ -68,19 +68,47 @@ function checkwins(){
 	}
 }
 
-function mark(x, y){
+//increment/decriment the number of times a tile id
+//has been selected
+function db_count(id, selected=true){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			console.log("transaction result: " + this.responseText);
+		}
+	}
+	xhttp.open("POST", "stats.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	
+	
+	if(selected == true){
+		//increment the selected tile
+		xhttp.send("tile_select=" + id);
+	}
+	else{
+		//decriment the selected tile
+		xhttp.send("tile_deselect=" + id);
+	}
+}
+
+//this version of mark increments the cell count in the database
+function mark(x, y, id){
+	if(id == -1){
+		return;
+	}
 	cell = document.getElementById(String(x) + "-" + String(y));
 	if(board[x][y] == false){
 		board[x][y] = true;
 		cell.style["background-color"] = "green";
-		//cell.css('background-color', '#00ff00ff');
-		//cell.style["opacity"] = 1;
+		
+		//mark it in the database
+		db_count(id);
 	}
 	else{
 		board[x][y] = false;
-		//cell.css('background-color', '#c7c5c5');
 		cell.style["background-color"] = "#c7c5c5ee";
-		//cell.style["opacity"] = 0.19;
+		//unmark it in the database
+		db_count(id, false);
 	}
 	checkwins();
 }
